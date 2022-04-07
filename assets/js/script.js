@@ -9,10 +9,14 @@ var newRow = $('<div>').addClass('row')
 
 
 var newHour = $("<div>").addClass('hour col')
-var newText = $("<div>").addClass('present col-10 ')
-var newBtn = $("<div>").addClass('saveBtn col ')
+var newText = $("<input>").addClass('present col-10')
+var newBtn = $("<button>").addClass('saveBtn col')
 container.append(newRow)
 newHour.text("9am")
+newBtn.text("💾")
+newBtn.on("click", function() {
+  console.log("click")
+})
 newRow.append(newHour)
 newRow.append(newText)
 newRow.append(newBtn)
