@@ -11,11 +11,12 @@ to local storage, and live updating date and formatting that used Moment.js.
 
 ## Technologies Employed
 
-| Techlogy   | Implementation/Use          |
-|:----------:|-----------------------------|
-|HTML        | Structure of Webpage        |
-|CSS         | Styling of Application      |
-|JQuery  | Dynamically updating the DOM|
+| Techlogy   | Implementation/Use                |
+|:----------:|-----------------------------------|
+|HTML        | Structure of Webpage              |
+|CSS         | Styling of Application            |
+|JQuery      | Dynamically updating the DOM      |
+|Moment.js   | Live updating date and CSS classes|
 
 ## Key Functions
 

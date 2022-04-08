@@ -72,7 +72,7 @@ function writeFromMemory(t){
   }
   var content= ''
   if(!obj[t]){
-    content += "free"
+    content += ""
   } else{
     content+= obj[t]
   }
