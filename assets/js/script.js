@@ -7,7 +7,6 @@ current.text(today.format("[Today is ]dddd, MMMM Do"))
 
 var times = [9,10,11,12,13,14,15,16,17]
 var memory = {}
-var currentHour = today.format('H')
 
 times.forEach(function(elm) {
   // using jquery to create a new row
@@ -19,7 +18,7 @@ times.forEach(function(elm) {
   var newBtn = $("<button>").addClass('saveBtn col')
   newText.addClass(updateTxtColors(elm))
 
-  // adding content to time and savebtn  
+  // adding content to columns 
   var timeDisp = ""
   if(elm<12){
     timeDisp+= elm + 'am'
@@ -30,13 +29,15 @@ times.forEach(function(elm) {
   }
   newHour.text(timeDisp)
   newBtn.text("💾")
+  newText.val(writeFromMemory(elm))
 
+//save button functionality
   newBtn.on("click", function(){
-    console.log(newText.val())
+    console.log("click")
     saveToMemory(elm,newText.val())
   })
 
-
+// adding all new elements to page
   newRow.append(newHour)
   newRow.append(newText)
   newRow.append(newBtn)
@@ -44,10 +45,13 @@ times.forEach(function(elm) {
   
 })
 
+// saves content of calendar to localStorage
 function saveToMemory(k,v) {
   memory[k] = v
-  console.log(memory)
+  localStorage.setItem("mem",JSON.stringify(memory))
 }
+
+//updates colors of columns based on moment
 function updateTxtColors(t) {
   var colorClass = ""
     if(today.format('H')>t){
@@ -58,5 +62,20 @@ function updateTxtColors(t) {
       colorClass+= "present"
     }
   return colorClass
+}
+
+// fills in content from localStorage
+function writeFromMemory(t){
+  var obj = JSON.parse(localStorage.getItem("mem"))
+  if(obj ===null){
+    return
+  }
+  var content= ''
+  if(!obj[t]){
+    content += "free"
+  } else{
+    content+= obj[t]
+  }
+  return content
 }
 
