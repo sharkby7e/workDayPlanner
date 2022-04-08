@@ -45,12 +45,6 @@ times.forEach(function(elm) {
   
 })
 
-// saves content of calendar to localStorage
-function saveToMemory(k,v) {
-  memory[k] = v
-  localStorage.setItem("mem",JSON.stringify(memory))
-}
-
 //updates colors of columns based on moment
 function updateTxtColors(t) {
   var colorClass = ""
@@ -62,6 +56,12 @@ function updateTxtColors(t) {
       colorClass+= "present"
     }
   return colorClass
+}
+
+// saves content of calendar to localStorage
+function saveToMemory(k,v) {
+  memory[k] = v
+  localStorage.setItem("mem",JSON.stringify(memory))
 }
 
 // fills in content from localStorage
